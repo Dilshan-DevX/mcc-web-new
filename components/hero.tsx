@@ -50,27 +50,32 @@ export function Hero() {
 
           <motion.h1
             {...rise(0.25)}
-            className="mt-6 font-display text-balance text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[0.98] tracking-tight text-primary-foreground"
+            className="mt-4 flex flex-col font-display font-bold tracking-tight text-primary-foreground"
           >
-            {school.name}
+            <span className="text-[clamp(2.25rem,5.5vw,4.25rem)] leading-[1.1] text-balance">
+              A/Maithreepala Senanayake
+            </span>
+            <span className="text-[clamp(1.75rem,4vw,3.25rem)] font-semibold text-primary-foreground/90 mt-1 leading-[1.1]">
+              Central College
+            </span>
           </motion.h1>
 
           <motion.p
             {...rise(0.4)}
-            className="mt-4 flex items-center gap-3 font-display text-xl font-medium text-gold-light sm:text-2xl"
+            className="mt-3 flex items-center gap-3 font-display text-lg font-medium text-gold-light sm:text-xl"
           >
-            <span className="h-px w-10 bg-gold" />
+            <span className="h-px w-8 bg-gold sm:w-10" />
             {school.location}
           </motion.p>
 
           <motion.p
             {...rise(0.55)}
-            className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-primary-foreground/85"
+            className="mt-4 max-w-xl text-pretty text-base sm:text-lg leading-relaxed text-primary-foreground/85"
           >
             {t('heroTagline')}
           </motion.p>
 
-          <motion.div {...rise(0.7)} className="mt-9 flex flex-wrap gap-4">
+          <motion.div {...rise(0.7)} className="mt-6 flex flex-wrap gap-4">
             <Link
               href="/about"
               className="group inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy transition-all hover:-translate-y-0.5 hover:bg-gold-light"

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { GraduationCap } from 'lucide-react'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { school } from '@/data/school'
 
@@ -13,20 +13,20 @@ export function Logo({ compact = false }: LogoProps) {
       href="/"
       className="group flex shrink-0 items-center gap-3 text-navy"
     >
-      <span
+      <div
         className={cn(
-          'flex items-center justify-center rounded-full bg-navy text-gold transition-all duration-300',
-          'group-hover:shadow-md group-hover:shadow-navy/10',
-          compact ? 'size-10' : 'size-[46px]',
+          'relative flex items-center justify-center transition-all duration-300 overflow-hidden rounded-full',
+          compact ? 'size-10' : 'size-[70px]',
         )}
       >
-        <GraduationCap
-          className={cn(
-            'transition-all duration-300',
-            compact ? 'size-[22px]' : 'size-6',
-          )}
+        <Image
+          src="/mcc.png"
+          alt="MSC Logo"
+          fill
+          className="object-contain"
+          sizes="(max-width: 768px) 40px, 46px"
         />
-      </span>
+      </div>
       
       {/* Vertical Divider */}
       <div className={cn(

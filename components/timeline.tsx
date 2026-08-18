@@ -16,37 +16,57 @@ export function Timeline() {
           align="center"
         />
 
-        <div className="relative mt-16">
+        <div className="relative mt-16 md:mt-24">
+          {/* Center Vertical Line */}
           <div
-            className="absolute left-4 top-0 h-full w-px bg-border md:left-1/2 md:-translate-x-1/2"
+            className="absolute left-4 top-0 h-full w-[2px] bg-navy/15 md:left-1/2 md:-translate-x-1/2"
             aria-hidden
           />
 
-          <ol className="space-y-10 md:space-y-14">
+          <ol className="space-y-10 md:space-y-16">
             {timeline.map((item, i) => {
               const left = i % 2 === 0
               return (
-                <li key={item.year} className="relative">
+                <li key={item.year} className="relative group">
+                  {/* Timeline Circle */}
                   <span
-                    className="absolute left-4 top-2 z-10 size-3.5 -translate-x-1/2 rounded-full border-2 border-gold bg-card md:left-1/2"
+                    className="absolute left-4 top-6 z-10 size-4 -translate-x-1/2 rounded-full border-[2.5px] border-gold bg-card transition-colors duration-300 group-hover:bg-gold md:left-1/2"
                     aria-hidden
                   />
+                  
+                  {/* Connector Line (Mobile) */}
+                  <span
+                    className="absolute left-[24px] top-[31px] h-[2px] w-6 bg-navy/15 transition-colors duration-300 group-hover:bg-gold/60 md:hidden"
+                    aria-hidden
+                  />
+
+                  {/* Connector Line (Desktop) */}
+                  <span
+                    className={cn(
+                      'hidden md:block absolute top-[31px] h-[2px] w-10 bg-navy/15 transition-colors duration-300 group-hover:bg-gold/60',
+                      left 
+                        ? 'right-[calc(50%+8px)]' 
+                        : 'left-[calc(50%+8px)]'
+                    )}
+                    aria-hidden
+                  />
+
                   <Reveal
                     className={cn(
-                      'ml-10 md:ml-0 md:w-[calc(50%-2.5rem)]',
-                      left ? 'md:mr-auto md:pr-4' : 'md:ml-auto md:pl-4',
+                      'ml-12 md:ml-0 md:w-[calc(50%-3rem)]',
+                      left ? 'md:mr-auto md:pr-0' : 'md:ml-auto md:pl-0',
                     )}
                   >
                     <div
                       className={cn(
-                        'rounded-xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md',
+                        'rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg group-hover:shadow-navy/5',
                         left ? 'md:text-right' : 'md:text-left',
                       )}
                     >
                       <span className="font-display text-2xl font-bold text-gold">
                         {item.year}
                       </span>
-                      <p className="mt-2 text-pretty leading-relaxed text-foreground">
+                      <p className="mt-1.5 text-pretty text-[15px] font-medium leading-relaxed text-foreground/90">
                         {item.title}
                       </p>
                     </div>
