@@ -41,7 +41,7 @@ export function Logo({ compact = false }: LogoProps) {
             compact ? 'text-[10px]' : 'text-[11px]',
           )}
         >
-          MSC MAITHREEPALA SENANAYAKE
+          MAITHREEPALA SENANAYAKE
         </span>
         <span
           className={cn(
