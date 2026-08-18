@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand tokens */
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-burgundy: var(--burgundy);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-soft-gray: var(--soft-gray);
+  --color-cream: var(--cream);
+  --color-maroon: var(--maroon);
+
+  --font-sans: var(--font-inter), 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), 'Plus Jakarta Sans', ui-sans-serif, sans-serif;
+  --font-sinhala: var(--font-sinhala), 'Noto Sans Sinhala', sans-serif;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: light;
+
+  --navy: #123c73;
+  --navy-dark: #0d2b52;
+  --burgundy: #5a0f22;
+  --gold: #d4a72c;
+  --gold-light: #f0d98a;
+  --soft-gray: #f5f7fa;
+  --cream: #fffcf5;
+  --gold-dark: #b08c1f;
+  --maroon: #5a0f22;
+
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #123c73;
+  --primary-foreground: #ffffff;
+  --secondary: #5a0f22;
+  --secondary-foreground: #ffffff;
+  --muted: #f5f7fa;
+  --muted-foreground: #64748b;
+  --accent: #d4a72c;
+  --accent-foreground: #111827;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #e5e9f0;
+  --input: #e5e9f0;
+  --ring: #d4a72c;
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  :lang(si) {
+    font-family: var(--font-sinhala);
+  }
+  ::selection {
+    background: var(--gold);
+    color: var(--navy-dark);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
